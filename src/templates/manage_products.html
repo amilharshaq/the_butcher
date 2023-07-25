@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="filter_products">
+    <table border="1">
+        <tr>
+            <th>Select product type</th>
+            <th><select name="select">
+                <option>Chicken</option>
+                <option>Mutton</option>
+                <option>Fish</option>
+                <option>Masala powders</option>
+            </select>
+            </th>
+            <th colspan="2"><input type="submit" value="Show"></th>
+        </tr>
+
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+
+        {% for i in val %}
+
+        <tr>
+            <td><img src="../static/product_images/{{i['main_image']}}"></td>
+            <td>{{i['name']}}</td>
+            <td>{{i['price']}}</td>
+            <td>{{i['description']}}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+</form>
+</body>
+</html>
