@@ -1,5 +1,7 @@
 from flask import *
 from src.db import *
+import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -25,6 +27,45 @@ def login_code():
 @app.route("/admin_home")
 def admin_home():
     return render_template("home.html")
+
+
+@app.route("/add_products")
+def add_products():
+    return render_template("add_products.html")
+
+
+@app.route("/insert_products", methods=['post'])
+def insert_products():
+    category = request.form['select']
+    name = request.form['textfield']
+    price = request.form['textfield2']
+    description = request.form['textfield3']
+    stock = request.form['textfield4']
+
+    main_image = request.files['img1']
+    sub_image1 = request.files['img2']
+    sub_image2 = request.files['img3']
+    sub_image3 = request.files['img4']
+
+    main_image_name = secure_filename(main_image.filename)
+    main_image.save(os.path.join('static/product_images', main_image_name))
+
+    sub_image1_name = secure_filename(sub_image1.filename)
+    main_image.save(os.path.join('static/product_images', sub_image1_name))
+
+    sub_image2_name = secure_filename(sub_image2.filename)
+    main_image.save(os.path.join('static/product_images', sub_image2_name))
+
+    sub_image3_name = secure_filename(sub_image3.filename)
+    main_image.save(os.path.join('static/product_images', sub_image3_name))
+
+    qry = "INSERT INTO `product` VALUES(NULL,%s,%s,%s,%s,%s)"
+    id = iud(qry,(name,price,description,stock,category))
+
+    qry = "INSERT INTO `product_images` VALUES(NULL,%s,%s,%s,%s,%s)"
+    iud(qry,(id,main_image_name,sub_image1_name,sub_image2_name,sub_image3_name))
+
+    return '''<script>alert("Successfully added");window.location="add_products"</script>'''
 
 
 @app.route("/manage_products")

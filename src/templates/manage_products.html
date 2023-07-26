@@ -16,7 +16,7 @@
                 <option>Masala powders</option>
             </select>
             </th>
-            <th colspan="2"><input type="submit" value="Show"></th>
+            <th colspan="4"><input type="submit" value="Show"></th>
         </tr>
 
         <tr>
@@ -24,15 +24,22 @@
             <th>Product</th>
             <th>Price</th>
             <th>Description</th>
+            <th>Stock</th>
+            <th>Actions</th>
         </tr>
 
         {% for i in val %}
 
         <tr>
-            <td><img src="../static/product_images/{{i['main_image']}}"></td>
+            <td><img src="../static/product_images/{{i['main_image']}}" alt="{{i['main_image']}}" width="100" height="100"></td>
             <td>{{i['name']}}</td>
             <td>{{i['price']}}</td>
             <td>{{i['description']}}</td>
+            <td>{{i['stock']}}</td>
+            <td>
+                <a href="#">Edit</a><br><br>
+                <a href="#">Remove</a>
+            </td>
         </tr>
 
         {% endfor %}

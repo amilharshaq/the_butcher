@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add products</title>
+</head>
+<body>
+
+<form method="post" action="insert_products" enctype="multipart/form-data">
+    <table border="1">
+        <tr>
+            <th>Category</th>
+            <td><select name="select">
+                <option>Chicken</option>
+                <option>Mutton</option>
+                <option>Fish</option>
+                <option>Masala powders</option>
+            </select></td>
+        </tr>
+
+        <tr>
+            <th>Product name</th>
+            <td><input type="text" name="textfield" required></td>
+        </tr>
+
+        <tr>
+            <th>Price</th>
+            <td><input type="number" name="textfield2" required></td>
+        </tr>
+
+        <tr>
+            <th>Description</th>
+            <td><input type="text" name="textfield3" required></td>
+        </tr>
+
+        <tr>
+            <th>Stock</th>
+            <td><input type="text" name="textfield4" required></td>
+        </tr>
+
+        <tr>
+            <th>Main image</th>
+            <td><input type="file" name="img1" required></td>
+        </tr>
+
+        <tr>
+            <th>Sub image1</th>
+            <td><input type="file" name="img2" required></td>
+        </tr>
+
+        <tr>
+            <th>Sub image2</th>
+            <td><input type="file" name="img3" required></td>
+        </tr>
+
+        <tr>
+            <th>Sub image3</th>
+            <td><input type="file" name="img4"></td>
+        </tr>
+
+        <tr>
+            <th colspan="2"><input type="submit" value="Add"></th>
+        </tr>
+
+    </table>
+</form>
+
+</body>
+</html>
