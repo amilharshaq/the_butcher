@@ -2,7 +2,7 @@ import pymysql
 
 
 def iud(qry,val):
-    con=pymysql.connect(host='localhost',port=3306,user='root',password='',db='the_butcher')
+    con=pymysql.connect(host='sql106.infinityfree.com',port=3306,user='if0_34811636',password='XDw48cSis4Kf',db='if0_34811636_XXX')
     cmd=con.cursor()
     cmd.execute(qry,val)
     id=cmd.lastrowid
@@ -12,7 +12,7 @@ def iud(qry,val):
     return id
 
 def selectone(qry,val):
-    con=pymysql.connect(host='localhost',port=3306,user='root',password='',db='the_butcher',cursorclass=pymysql.cursors.DictCursor)
+    con=pymysql.connect(host='sql106.infinityfree.com',port=3306,user='if0_34811636',password='XDw48cSis4Kf',db='if0_34811636_XXX',cursorclass=pymysql.cursors.DictCursor)
     cmd=con.cursor()
     cmd.execute(qry,val)
     res=cmd.fetchone()
